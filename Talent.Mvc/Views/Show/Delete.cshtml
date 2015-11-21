@@ -1,0 +1,16 @@
+﻿@model Talent.Domain.Show
+
+@{
+    ViewBag.Title = "Delete Show";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete the Show \quot;@Model.Title\quot;?</h3>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" class="btn btn-primary" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

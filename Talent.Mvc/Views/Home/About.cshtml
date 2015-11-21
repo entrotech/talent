@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "About the Talent Application";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<div class="row">
+    <article class="col-md-offset-3 col-md-6">
+        <p class="lead">
+            The Talent Application was originally developed as a client-server
+            WPF Application for the course I teach at UCLA Extension. This site has the beginnings of
+            a ASP.Net MVC front-end for the Application, both as a demonstration of my current
+            proficiency level with MVC, and as a first step toward the web front-end I've intended
+            to build for a while.
+        </p>
+
+        <p>
+            The full Talent Application has two main data entry screens for Shows and People,
+            respectively, plus three administrative screens for maintaing lookup lists of
+            Genres, Credit Types and MPAA Ratings.
+        </p>
+        <p>
+            At this point, I've implemented the controller and pages for maintaining Genres and
+            have a controller and pages for editing some attributes of Shows (the missing attributes
+            are child collections of many Genres per Show and many Credits per show).
+        </p>
+        <p>
+            I'm using the domain model and repositories from the WPF application, which have some features
+            for clients-side change tracking of object graphs using an Aggregate Root pattern for an editable
+            object graph. This may or may not be useful in MVC, but that's why you'll see extra properties
+            on the domain objects like IsDirty, IsMarkedForDeletion, etc.
+        </p>
+        <p>
+            I made an attempt to use Bootstrap 3 and make the layout responsive, except that the
+            main menu doesn't stack vertically when the width is narrow enough to collapse the horizontal menu.
+            The theme is just the sandstone theme from bootswatch. There are several areas where spacing (especially in the
+            vertical direction) is not great, but I'm pretty happy with bootstrap, given that I've only got a few hours
+            experience with it.
+        </p>
+        <p>
+            There are a number of features that remain to be implemented.
+        </p>
+        <ul>
+            <li>Add the ability to select one or more Genres for each Show.</li>
+            <li>
+                Add the ability to maintain Credits for each Show, where each Credit associates a Show with a
+                Person, a Credit Type (Director, Writer, Actor, etc.) and an optional character name for acting credits.
+            </li>
+            <li>Need to add a search feature to be able to find a show by partial title, and perhaps some other criteria, and add paging to the Show/Index controller action.</li>
+            <li>Add standard authentication</li>
+            <li>Add maintenance screens for Credit Types and MPAA Ratings.</li>
+            <li>Add a screen for entering and maintaining People.</li>
+        </ul>
+    </article>
+</div>

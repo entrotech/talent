@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/bootstrap/css/sandstone-bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <title>@ViewBag.Title - Talent Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div>
+        <header  class="container">
+
+            <div class="row">
+                <div id="menu" name="menu" class="navbar navbar-default navbar-fixed-top">
+                    <div class="navbar-header">
+                        <a><h2 >Talent Application</h2></a>
+                        <button class="btn btn-success navbar-toggle"
+                                data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        @*<div id="logo">
+                            <a href="."></a>
+                        </div>*@
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav">@Html.ActionLink("Shows", "Index", "Show")</li>
+                            <li class="nav">@Html.ActionLink("Genres", "Index", "Genre")</li>
+                            <li class="nav">@Html.ActionLink("About", "About", "Home")</li>
+                            <li class="nav">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+
+                <div class="pull-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>
+            </div>*@
+        </header>
+        <div id="body" class="container">
+            @RenderSection("featured", required: false)
+            <section>
+                @RenderBody()
+            </section>
+        </div>
+        <footer class="container, footer">
+            <div class="row">
+                <span class="col-md-10">
+                    &copy; @DateTime.Now.Year - Entrotech Engineering, Inc.
+                </span>
+                <img class="col-md-2 pull-right" src="/Images/EntrotechLogo125.png"  />
+
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+        <script src="~/bootstrap/js/bootstrap.min.js"></script>
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

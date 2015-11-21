@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F63F2E4E-260E-4C87-A833-C6E2335F2A50}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Talent.WpfClient</RootNamespace>
+    <AssemblyName>Talent.WpfClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Hadezign-Hobbies-Movies.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\CustomCommands.cs" />
+    <Compile Include="Converters\AttachmentToImageSourceConverter.cs" />
+    <Compile Include="Converters\BooleanNotConverter.cs" />
+    <Compile Include="Converters\BooleanToTranslucentConverter.cs" />
+    <Compile Include="Converters\IntToStringConverter.cs" />
+    <Compile Include="Converters\NullableIntToStringConverter.cs" />
+    <Compile Include="Converters\NullableDoubleToStringConverter.cs" />
+    <Compile Include="Converters\NullToFalseConverter.cs" />
+    <Compile Include="Converters\DomainObjectNotDirtyConverter.cs" />
+    <Compile Include="Converters\NullToCollapsedConverter.cs" />
+    <Compile Include="Converters\NullToHiddenConverter.cs" />
+    <Compile Include="Converters\ShowGenresToTextConverter.cs" />
+    <Compile Include="GenrePicker.xaml.cs">
+      <DependentUpon>GenrePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreditTypeView.xaml.cs">
+      <DependentUpon>CreditTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreditTypesView.xaml.cs">
+      <DependentUpon>CreditTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LookpCache.cs" />
+    <Compile Include="GenreView.xaml.cs">
+      <DependentUpon>GenreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GenresView.xaml.cs">
+      <DependentUpon>GenresView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleView.xaml.cs">
+      <DependentUpon>PeopleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonView.xaml.cs">
+      <DependentUpon>PersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowsView.xaml.cs">
+      <DependentUpon>ShowsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MpaaRatingsView.xaml.cs">
+      <DependentUpon>MpaaRatingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MpaaRatingView.xaml.cs">
+      <DependentUpon>MpaaRatingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowView.xaml.cs">
+      <DependentUpon>ShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationRules\DateTimePastRule.cs" />
+    <Compile Include="ValidationRules\DoubleRangeRule.cs" />
+    <Compile Include="ValidationRules\DateTimeRangeRule.cs" />
+    <Compile Include="ValidationRules\IntRangeRule.cs" />
+    <Compile Include="ValidationRules\IsDoubleRule.cs" />
+    <Compile Include="ValidationRules\IsIntRule.cs" />
+    <Compile Include="ValidationRules\StringRequiredRule.cs" />
+    <Page Include="GenrePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreditTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CreditTypesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="GenreView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GenresView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PeopleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MpaaRatingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MpaaRatingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Talent.DataAccess.Ado\Talent.DataAccess.Ado.csproj">
+      <Project>{06603898-c6ac-4a6a-b098-0f43b39f5cea}</Project>
+      <Name>Talent.DataAccess.Ado</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Talent.Domain\Talent.Domain.csproj">
+      <Project>{6caa5393-7328-4f3c-9d75-6a8735845eba}</Project>
+      <Name>Talent.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ucla.Common\Ucla.Common.csproj">
+      <Project>{dc0e099c-97f7-4fe6-8a8c-f28b0006037a}</Project>
+      <Name>Ucla.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\accept.png" />
+    <Resource Include="Resources\add.png" />
+    <Resource Include="Resources\cancel.png" />
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\category-icon.png" />
+    <Resource Include="Resources\Director-icon.png" />
+    <Resource Include="Resources\Hadezign-Hobbies-Movies.ico" />
+    <Resource Include="Resources\Movies-icon.png" />
+    <Resource Include="Resources\Movies32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\rating-mockup.png" />
+    <Resource Include="Resources\system-star-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\asterisk_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Document.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

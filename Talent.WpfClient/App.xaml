@@ -1,0 +1,153 @@
+﻿<Application x:Class="Talent.WpfClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml"
+             DispatcherUnhandledException="Application_DispatcherUnhandledException">
+    <Application.Resources>
+
+        <!-- Brushes -->
+        <SolidColorBrush x:Key="WindowBackground" Color="#5698c5"/>
+        <SolidColorBrush x:Key="PanelBackground" Color="#86b6d6"/>
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#0e6dad"></SolidColorBrush>
+
+        <!-- Blues Color Palette
+        <SolidColorBrush
+            x:Key="Brush1"
+            Color="#0e6dad" />
+        <SolidColorBrush
+            x:Key="Brush2"
+            Color="#267bb5" />
+        <SolidColorBrush
+            x:Key="Brush3"
+            Color="#5698c5" />
+        <SolidColorBrush
+            x:Key="Brush4"
+            Color="#86b6d6" />
+        <SolidColorBrush
+            x:Key="Brush5"
+            Color="#b6d3e6" />
+        -->
+
+        <!-- Text Styles -->
+        
+        <Style x:Key="PageHeadingTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter
+                Property="Foreground"
+                Value="{StaticResource SolidBorderBrush}" />
+        </Style>
+
+        <Style
+            x:Key="HeadingTextBlockStyle"
+            TargetType="TextBlock">
+            <Setter
+                Property="FontSize"
+                Value="16" />
+            <Setter
+                Property="FontWeight"
+                Value="Bold" />
+        </Style>
+
+        
+
+        <!-- Validation Error Template -->
+        <ControlTemplate
+            x:Key="validationTemplate">
+            <DockPanel>
+                <AdornedElementPlaceholder />
+                <Image
+                    Source="Resources\asterisk_yellow.png"
+                    Height="16"
+                    Margin="2,0" />
+            </DockPanel>
+        </ControlTemplate>
+
+        <!-- Style to replace default for ListBoxItem selection appearance -->
+        <Style
+            x:Key="BoldOutlineItemContainer"
+            TargetType="{x:Type ListBoxItem}">
+            <Setter
+                Property="Template">
+                <Setter.Value>
+                    <ControlTemplate
+                        TargetType="{x:Type ListBoxItem}">
+                        <Border
+                            Background="White"
+                            CornerRadius="0"
+                            Padding="6"
+                            BorderThickness="1"
+                            BorderBrush="{StaticResource SolidBorderBrush}"
+                            x:Name="IconBorder"
+                            Margin="4">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger
+                                Property="IsSelected"
+                                Value="true">
+                                <Setter
+                                    TargetName="IconBorder"
+                                    Property="BorderThickness"
+                                    Value="4" />
+                                <Setter
+                                    TargetName="IconBorder"
+                                    Property="Margin"
+                                    Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Control Styling -->
+
+        <Style TargetType="TextBox" >
+            <Setter Property="Margin" Value="4,4,20,4" />
+            <Setter Property="Validation.ErrorTemplate" 
+                    Value="{StaticResource validationTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter 
+                        Property="ToolTip"
+                        Value="{Binding RelativeSource={RelativeSource Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style
+            TargetType="DatePicker">
+            <Setter
+                Property="Margin"
+                Value="4,4,20,4" />
+            <Setter
+                Property="Validation.ErrorTemplate"
+                Value="{StaticResource validationTemplate}" />
+            <Style.Triggers>
+                <Trigger
+                    Property="Validation.HasError"
+                    Value="True">
+                    <Setter
+                        Property="ToolTip"
+                        Value="{Binding RelativeSource={RelativeSource Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style
+            TargetType="CheckBox">
+            <Setter
+                Property="Margin"
+                Value="4" />
+        </Style>
+
+    </Application.Resources>
+</Application>

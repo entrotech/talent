@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Talent.Domain.Genre>
+
+@{
+    ViewBag.Title = "Genres";
+}
+
+<h2>All Genres</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container">    
+    <div class="row">
+        <table class="table table-striped table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th>Inactive</th>
+                    <th>Display Order</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsInactive)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DisplayOrder)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.GenreId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.GenreId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿<Window x:Class="Talent.WpfClient.GenrePicker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Talent.WpfClient"
+        Title="Select Genres" Height="500" Width="300"
+        Background="{StaticResource WindowBackground }">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListBox
+            Grid.Row="0" 
+            Margin="4"
+            x:Name="GenresListBox"
+            SelectionMode="Extended"
+            ItemsSource="{x:Static local:LookupCache.Genres}"
+            ItemContainerStyle="{StaticResource BoldOutlineItemContainer}"
+            DisplayMemberPath="Name"
+            VerticalAlignment="Stretch"
+            >
+        </ListBox>
+        <StackPanel
+            Grid.Row="2" Grid.Column="1"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                x:Name="OkButton"
+                Click="OkButton_Click"
+                MinWidth="75"
+                IsDefault="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/accept.png" Height="16" />
+                    <TextBlock
+                        Margin="4">OK</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="CancelButton"
+                MinWidth="75"
+                Click="CancelButton_Click"
+                IsCancel="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/cancel.png" Height="16" />
+                    <TextBlock Margin="4">Cancel</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
+

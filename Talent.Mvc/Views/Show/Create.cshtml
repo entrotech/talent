@@ -1,0 +1,74 @@
+﻿@model Talent.Mvc.Models.ShowViewModel
+
+@{
+    ViewBag.Title = "New Show";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <div class="editor-label">
+                Title
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ShowModel.Title)
+                @Html.ValidationMessageFor(model => model.ShowModel.Title)
+            </div>
+
+            <div class="editor-label">
+                Length (min)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ShowModel.LengthInMinutes)
+                @Html.ValidationMessageFor(model => model.ShowModel.LengthInMinutes)
+            </div>
+
+            <div class="editor-label">
+                Theatrical Release
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ShowModel.TheatricalReleaseDate)
+                @Html.ValidationMessageFor(model => model.ShowModel.TheatricalReleaseDate)
+            </div>
+
+            <div class="editor-label">
+                DVD Release
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ShowModel.DvdReleaseDate)
+                @Html.ValidationMessageFor(model => model.ShowModel.DvdReleaseDate)
+            </div>
+
+            <div class="editor-label">
+                MPAA Rating
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.ShowModel.MpaaRatingId, Model.MpaaRatings);
+                @Html.ValidationMessageFor(m => m.ShowModel.MpaaRatingId)
+            </div>
+
+            @Html.EditorFor(m => m.ShowModel.ShowGenres)
+
+
+            <p>
+                <input type="submit" class="btn btn-primary" value="Create" />
+            </p>
+        </fieldset>
+    }
+</div>
+
+
+
+<div class="row">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

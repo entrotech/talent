@@ -1,0 +1,111 @@
+﻿<Window
+    x:Class="Talent.WpfClient.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Talent Database"
+    Height="600"
+    Width="800"
+    Background="{DynamicResource ResourceKey=WindowBackground}"
+    Icon="Resources/Hadezign-Hobbies-Movies.ico">
+    <Window.Resources>
+        <Style
+            x:Key="TopNavButton"
+            TargetType="Button">
+            <Setter
+                Property="FontSize"
+                Value="16" />
+            <Setter
+                Property="FontWeight"
+                Value="Bold" />
+            <Setter
+                Property="Margin"
+                Value="8" />
+            <Setter
+                Property="Padding"
+                Value="6" />
+            <Setter
+                Property="MinWidth"
+                Value="100" />
+        </Style>
+    </Window.Resources>
+    <Grid
+        Margin="16, 0, 16, 16">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Column="1" x:Name="ShowButton"
+                Style="{DynamicResource ResourceKey=TopNavButton}"
+                Click="ShowButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources\Movies32.png" Height="16" />
+                    <TextBlock Margin="8,0,0,0">Shows</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button
+                Grid.Column="2" x:Name="PersonButton"
+                Style="{DynamicResource ResourceKey=TopNavButton}"
+                Click="PeopleButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources\system-star-icon.png" Height="16" />
+                    <TextBlock Margin="8,0,0,0">People</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button
+                Grid.Column="3" x:Name="GenreButton"
+                Style="{DynamicResource ResourceKey=TopNavButton}"
+                Click="GenresButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources\category-icon.png" Height="16" />
+                    <TextBlock Margin="8,0,0,0">Genres</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button
+                Grid.Column="4" 
+                Style="{DynamicResource ResourceKey=TopNavButton}"
+                Click="CreditTypesButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources\Director-icon.png" Height="16" />
+                    <TextBlock Margin="8,0,0,0">Credit Types</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button
+                Grid.Column="5" x:Name="MpaaRatingButton"
+                Style="{DynamicResource ResourceKey=TopNavButton}"
+                Click="MpaaRatingsButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources\rating-mockup.png" Height="16" />
+                    <TextBlock Margin="8,0,0,0">MPAA Ratings</TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Border
+            Grid.Row="1"
+            x:Name="MainContentArea"
+            BorderBrush="{StaticResource SolidBorderBrush}"
+            BorderThickness="1">
+        </Border>
+    </Grid>
+</Window>

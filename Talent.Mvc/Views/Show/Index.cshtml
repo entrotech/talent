@@ -1,0 +1,56 @@
+﻿@model Talent.Mvc.Models.ShowsViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Shows</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Length (min)
+        </th>
+        <th>
+            Theatrical Release
+        </th>
+        <th>
+            DVD Release
+        </th>
+        <th>
+            MPAA Rtg
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.ShowViewModels) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowModel.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowModel.LengthInMinutes)
+        </td>
+        <td>
+            @(item.ShowModel.TheatricalReleaseDate == null ? String.Empty : item.ShowModel.TheatricalReleaseDate.Value.ToString("MM/dd/yyyy"))
+        </td>
+        <td>
+            @(item.ShowModel.DvdReleaseDate == null ? String.Empty : item.ShowModel.DvdReleaseDate.Value.ToString("MM/dd/yyyy"))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MpaaRatingName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShowModel.ShowId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ShowModel.ShowId })
+        </td>
+    </tr>
+}
+
+</table>

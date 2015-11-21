@@ -1,0 +1,24 @@
+﻿@model Talent.Domain.ShowGenre
+
+<td>
+    @Html.DisplayFor(modelItem => item.Name)
+</td>
+
+<td>
+    @Html.DisplayFor(modelItem => item.BranchName)
+</td>
+
+<td>
+    @Html.DisplayFor(modelItem => item.CourseName)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.Gender)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.Address)
+</td>
+<td>
+    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+    @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+</td>
